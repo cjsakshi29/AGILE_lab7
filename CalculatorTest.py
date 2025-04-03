@@ -1,26 +1,27 @@
 import unittest
-from Calculator import Calculator  # Importing the Calculator class
+from Calculator import add, subtract, multiply, divide  # Import functions from Calculator.py
 
-class CalculatorTest(unittest.TestCase):  # Creating a test class
-    def setUp(self):
-        """This method runs before every test case"""
-        self.calc = Calculator()  # Creating an instance of Calculator
-
+class TestCalculator(unittest.TestCase):
     def test_add(self):
-        """Test the addition function"""
-        self.assertEqual(10, self.calc.add(7, 3), "Addition is incorrect")
+        self.assertEqual(add(2, 3), 5)
+        self.assertEqual(add(-1, 1), 0)
+        self.assertEqual(add(0, 0), 0)
 
     def test_subtract(self):
-        """Test the subtraction function"""
-        self.assertEqual(4, self.calc.subtract(7, 3), "Subtraction is incorrect")
+        self.assertEqual(subtract(10, 5), 5)
+        self.assertEqual(subtract(0, 5), -5)
+        self.assertEqual(subtract(3, 3), 0)
 
     def test_multiply(self):
-        """Test the multiplication function"""
-        self.assertEqual(21, self.calc.multiply(7, 3), "Multiplication is incorrect")
+        self.assertEqual(multiply(3, 4), 12)
+        self.assertEqual(multiply(-2, 5), -10)
+        self.assertEqual(multiply(0, 100), 0)
 
-    def test_squareRoot(self):
-        """Test the square root function"""
-        self.assertEqual(5, self.calc.squareRoot(25), "Square root is incorrect")
+    def test_divide(self):
+        self.assertEqual(divide(10, 2), 5)
+        self.assertEqual(divide(9, 3), 3)
+        self.assertEqual(divide(7, 1), 7)
+        self.assertEqual(divide(5, 0), "Error! Division by zero.")  # Test division by zero
 
 if __name__ == '__main__':
     unittest.main()
