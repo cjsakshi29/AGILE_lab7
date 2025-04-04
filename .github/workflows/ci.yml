@@ -1,0 +1,32 @@
+name: CI for Python Calculator
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: Install Dependencies
+      run: |
+        pip install pytest pylint
+
+    - name: Run Unit Tests
+      run: python -m unittest CalculatorTest.py
+
+    - name: Run Linter
+      run: pylint Calculator.py
