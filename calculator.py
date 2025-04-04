@@ -1,10 +1,6 @@
 """
-Calculator Module
-
-This module provides basic arithmetic operations: addition, subtraction,
-multiplication, and division.
+Calculator Module: Provides basic arithmetic operations.
 """
-
 def add(a, b):
     """Returns the sum of two numbers."""
     return a + b
@@ -18,21 +14,7 @@ def multiply(a, b):
     return a * b
 
 def divide(a, b):
-    """Returns the division of two numbers. Raises ZeroDivisionError if b is zero."""
+    """Returns the quotient of two numbers. Handles division by zero."""
     if b == 0:
-        raise ZeroDivisionError("Cannot divide by zero")
+        return "Error! Division by zero."
     return a / b
-
-def main():
-    """Runs the calculator program with user input."""
-    print("Simple Calculator")
-    a = float(input("Enter first number: "))
-    b = float(input("Enter second number: "))
-
-    print(f"Addition: {add(a, b)}")
-    print(f"Subtraction: {subtract(a, b)}")
-    print(f"Multiplication: {multiply(a, b)}")
-    print(f"Division: {divide(a, b)}")
-
-if __name__ == "__main__":
-    main()
